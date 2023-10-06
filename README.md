@@ -46,5 +46,5 @@ A demo project for hardhat
 2. deploy_upgradable_token.js: A script to deploy the upgradable contract
 3. faucet.js: A faucet script to send ether to the address on local network
 ## todo list
-[x] SimpleToken contract and test
-[ ] UpgradableToken contract and test
+- [x] SimpleToken contract and test
+- [ ] UpgradableToken contract and test

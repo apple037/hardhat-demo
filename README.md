@@ -19,6 +19,23 @@ A demo project for hardhat
 ```npx hardhat run scripts/deploy.js --network [network-name]```
 ## Run verify contract
 ```npx hardhat verify --network [network-name] [contract-address]```
+# Local test config
+## Run a local network
+```npx hardhat node```
+## Run a ganache-cli network
+```npx ganache-cli```
+## Run a ganache-cli network on docker
+```docker run -d -p 8545:8545 trufflesuite/ganache-cli:latest```
+# The basic workflow
+1. Prepare the development environment
+2. Initialize the project 
+3. Write the contract
+4. Write the test
+5. Compile the contract
+6. Run the test
+7. Run the coverage
+8. Deploy the contract
+9. Verify the contract
 # Project structure
 ## contracts
 1. SimpleToken.sol: A simple ERC20 token contract

@@ -9,6 +9,7 @@ A demo project for hardhat
 ```npx hardhat compile```
 ## Run the tests
 ```npx hardhat test```
+可以使用 console.sol 在合約中印出訊息 僅限Hardhat local network
 ## Run single test
 ```npx hardhat test test/test.js```
 ## Run coverage
@@ -34,8 +35,9 @@ A demo project for hardhat
 5. Compile the contract
 6. Run the test
 7. Run the coverage
-8. Deploy the contract
-9. Verify the contract
+8. Before deploy the contract, remove the console.log in the contract
+9. Deploy the contract
+10. Verify the contract
 # Project structure
 ## contracts
 1. SimpleToken.sol: A simple ERC20 token contract

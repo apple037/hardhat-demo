@@ -1,6 +1,8 @@
 const { Web3 } = require("web3")
 const web3 = new Web3("http://localhost:8545")
 const { ethers } = require("hardhat");
+require("dotenv").config();
+
 
 async function convertUnitFromDecimals(amount, decimals) {
     return BigInt(amount * Math.pow(10, decimals));
@@ -26,7 +28,8 @@ async function mintSign(verifyContractAddress, sender, tokenAddress, amount, non
         { t: "uint256", v: nonce },
         { t: "uint256", v: expireTime },
     );
-    let pk = "0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6"
+    // read private key from .env
+    let pk = process.env.SIGNER_PRIVATE_KEY;
     let sig_web3 = web3.eth.accounts.sign(hex, pk);
     //console.log("sig_web3: ", sig_web3);
     return sig_web3.signature;

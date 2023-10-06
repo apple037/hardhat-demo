@@ -21,7 +21,7 @@ contract VerifyHash is Ownable {
         return _signerAddress == hash.recover(signature);
     }
 
-    function setSignerAddress(address addr) external onlyOwner {
+    function setSignerAddress(address addr) public onlyOwner {
         _signerAddress = addr;
         emit SetSignerAddress(addr);
     }

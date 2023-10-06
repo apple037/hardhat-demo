@@ -7,7 +7,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "./VerifyHash.sol";
 
 contract SimpleToken is ERC20, ERC20Burnable, Ownable, VerifyHash {
-    constructor() ERC20("SimpleToken", "ST") {}
+    constructor(address _signerAddress) ERC20("SimpleToken", "ST") {
+        setSignerAddress(_signerAddress);
+    }
 
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);

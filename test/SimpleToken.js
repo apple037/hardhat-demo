@@ -5,13 +5,17 @@ const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 const { convertUnitFromDecimals, mintSign } = require("../utils/utils.js");
+require("dotenv").config();
 
 describe("SimpleToken", function () {
     async function fixture() {
         const provider = ethers.provider;
         const [owner, addr1, addr2, signer] = await ethers.getSigners();
         const SimpleToken = await ethers.getContractFactory("SimpleToken");
-        const simpleToken = await SimpleToken.deploy();
+        let tx_signer_adr = process.env.SIGNER_ADDRESS;
+        const simpleToken = await SimpleToken.deploy(tx_signer_adr);
+        // should emit event
+        expect(await simpleToken.setSignerAddress(signer.address)).to.emit(simpleToken, "SetSignerAddress").withArgs(signer.address);
         return { simpleToken, owner, addr1, addr2, signer };
     };
 
@@ -66,8 +70,6 @@ describe("SimpleToken", function () {
 
     describe("Signature function", function () {
         it("Should mint 100 tokens to addr1 using a signature", async function () {
-            // should emit event
-            expect(await simpleToken.setSignerAddress(signer.address)).to.emit(simpleToken, "SetSignerAddress").withArgs(signer.address);
             let signer_addr = await simpleToken.getSignerAddress();
             console.log("signer: ", signer_addr);
             let dateTime = new Date().getTime();

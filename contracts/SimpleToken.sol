@@ -5,10 +5,12 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./VerifyHash.sol";
+import "../node_modules/hardhat/console.sol";
 
 contract SimpleToken is ERC20, ERC20Burnable, Ownable, VerifyHash {
     constructor(address _signerAddress) ERC20("SimpleToken", "ST") {
         setSignerAddress(_signerAddress);
+        console.log("SimpleToken: constructor");
     }
 
     function mint(address to, uint256 amount) public onlyOwner {

@@ -5,6 +5,8 @@ A demo project for hardhat
 ```npm install hardhat```
 ## Create a new project
 ```npx hardhat init```
+## Add some contract
+可以使用 openzeppelin 的wizard 產生合約 [url](https://www.openzeppelin.com/contracts)
 ## Compile the project
 ```npx hardhat compile```
 ## Run the tests

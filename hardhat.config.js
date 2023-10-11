@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@openzeppelin/hardhat-upgrades");
 require("dotenv").config();
 
 // Go to https://alchemy.com, sign up, create a new App in
@@ -17,7 +18,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const SCAN_API_KEY = process.env.SCAN_API_KEY;
 
 module.exports = {
-  solidity: "0.8.19",
+  solidity: "0.8.21",
   etherscan: {
     apiKey: {
       goerli: SCAN_API_KEY

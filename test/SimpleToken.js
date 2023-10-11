@@ -61,7 +61,8 @@ describe("SimpleToken", function () {
         describe("Transfer function", function () {
             it("Should transfer 50 tokens from addr1 to addr2", async function () {
                 const amount = await convertUnitFromDecimals(50, 18);
-                await simpleToken.connect(addr1).transfer(addr2.address, amount);
+                // Transfer should emit event
+                expect(await simpleToken.connect(addr1).transfer(addr2.address, amount)).to.emit(simpleToken, "Transfer").withArgs(addr1.address, addr2.address, amount);
                 expect(await simpleToken.balanceOf(addr1.address)).to.equal(amount);
                 expect(await simpleToken.balanceOf(addr2.address)).to.equal(amount);
             });

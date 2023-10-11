@@ -1,9 +1,11 @@
 const { ethers, upgrades } = require("hardhat");
-
+const fs = require('fs');
 async function main() {
-    const TestToken = await ethers.getContractFactory("TestToken");
-    const testToken = await upgrades.deployProxy(TestToken, ["Jasper"], { initializer: 'initialize' });
-    console.log("TestToken deployed to:", testToken.address);
+    const UpgradeableToken = await ethers.getContractFactory("UpgradeableToken");
+    const upgradeableToken = await upgrades.deployProxy(UpgradeableToken, ["Jasper"], { initializer: 'initialize' });
+    console.log("UpgradeableToken deployed to:", await upgradeableToken.getAddress());
+    // Save proxy address to file
+    fs.writeFileSync("deployed_address.txt", await upgradeableToken.getAddress());
 }
 
 main()

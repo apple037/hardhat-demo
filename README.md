@@ -1,5 +1,6 @@
 # hardhat-demo
 A demo project for hardhat 
+Upgradeable ERC20 token demo see as [Upgradeable branch](https://github.com/apple037/hardhat-demo/tree/upgradeable)
 # Basic commands
 ## Install hardhat
 ```npm install hardhat```
@@ -51,4 +52,4 @@ A demo project for hardhat
 3. faucet.js: A faucet script to send ether to the address on local network
 ## todo list
 - [x] SimpleToken contract and test
-- [ ] UpgradableToken contract and test
+- [x] UpgradableToken contract and test

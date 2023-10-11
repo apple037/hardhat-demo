@@ -1,12 +1,24 @@
 # hardhat-demo
-A demo project for hardhat 
+A demo project for hardhat for upgradeable contract(EIP-1967) UUPS
+## Basic knowledge
+An upgradeable contract is a contract that can be upgraded to a new contract without losing the state of the old contract.
+The upgradeable contract is based on the proxy contract and the implementation contract.
+The proxy contract is the contract that the user interacts with, and the implementation contract is the contract that the proxy contract calls.
+The proxy contract is responsible for forwarding the call to the implementation contract.
+The implementation contract is responsible for the business logic.
+The proxy contract and the implementation contract are one-to-one mapping.
+The illustration of UUPS is as follows:
+![image](https://miro.medium.com/v2/resize:fit:1136/format:webp/1*P7C72ZpYrSUIedcqx6q48w.png)
+## EIP-1967
+EIP-1967 is a standard for upgradeable contracts. It defines the proxy contract and the implementation contract.
+The more detail is [here](https://eips.ethereum.org/EIPS/eip-1967)
 # Basic commands
 ## Install hardhat
 ```npm install hardhat```
 ## Create a new project
 ```npx hardhat init```
 ## Add some contract
-可以使用 openzeppelin 的wizard 產生合約 [url](https://www.openzeppelin.com/contracts)
+可以使用 openzeppelin 的 wizard 產生合約 [url](https://www.openzeppelin.com/contracts)
 ## Compile the project
 ```npx hardhat compile```
 ## Run the tests

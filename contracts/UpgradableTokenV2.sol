@@ -43,10 +43,6 @@ contract UpgradeableTokenV2 is
         _mint(to, amount);
     }
 
-    function burn(address owner, uint256 amount) public onlyOwner {
-        _burn(owner, amount);
-    }
-
     function setAuthor(string memory _author) public onlyOwner {
         author = _author;
     }
